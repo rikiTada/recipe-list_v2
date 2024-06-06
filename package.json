@@ -1,5 +1,5 @@
 {
-  "name": "aaa",
+  "name": "recipe-list_v2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
   "dependencies": {
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "firebase": "^10.12.2",
     "lucide-react": "^0.383.0",
     "next": "14.2.3",
     "react": "^18",
