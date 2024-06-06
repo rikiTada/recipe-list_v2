@@ -13,9 +13,11 @@ export default function Header({
 
   return (
     <header className="container border-b border-zinc-400/10 mx-auto flex h-16 items-center justify-between">
-      <div className="flex items-center gap-2.5">
-        <IconSlot size={40}>{icon}</IconSlot>
-        <h1 className="text-3xl font-bold">{title}</h1>
+      <div className="flex items-center text-primary gap-4">
+        <IconSlot size={40} className="hidden md:block">
+          {icon}
+        </IconSlot>
+        <h1 className="text-2xl md:text-3xl font-bold">{title}</h1>
       </div>
       <ModeToggle />
     </header>
