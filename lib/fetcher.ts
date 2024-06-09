@@ -1,4 +1,5 @@
 import db from "@/lib/firebase";
+import { RecipeList } from "@/types";
 import {
   collection,
   doc,
@@ -17,13 +18,13 @@ export const getSaveItems = async (ref: string) => {
     query(itemsRef, orderBy("timeStamp", "desc"))
   );
 
-  const items: any = [];
+  const items: RecipeList[] = [];
 
   querySnapshot.forEach((doc) => {
     const data = doc.data();
     data.id = doc.id;
     data.timeStamp = data.timeStamp.toDate().toLocaleDateString();
-    items.push(data);
+    items.push(data as RecipeList);
   });
 
   return items;
