@@ -9,6 +9,7 @@ import {
   query,
   orderBy,
   QuerySnapshot,
+  getDoc,
 } from "firebase/firestore";
 
 export const getSaveItems = async (ref: string) => {
@@ -28,6 +29,17 @@ export const getSaveItems = async (ref: string) => {
   });
 
   return items;
+};
+
+export const getSaveItemById = async (ref: string, id: string) => {
+  const docRef = doc(db, ref, id);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    return docSnap.data();
+  } else {
+    console.log("No such document!");
+  }
 };
 
 export const deleteItems = async (ref: string, id: string) =>
