@@ -8,7 +8,7 @@ export default function Page() {
       <Header title="レシピ一覧" icon={<Folder />} />
       <div className="container my-8">
         <DataTable />
-        <div className="container h-16"></div>
+        <div className="h-16"></div>
       </div>
     </>
   );
