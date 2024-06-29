@@ -12,10 +12,16 @@ import {
 import { useRecipeStore } from "@/store/recipeStore";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function DataTable() {
-  const { recipeData, getRecipeData, loading } = useRecipeStore();
-  getRecipeData();
+  const { recipeData, getRecipeData } = useRecipeStore();
+
+  useEffect(() => {
+    if (!recipeData || recipeData.length === 0) {
+      getRecipeData();
+    }
+  }, [recipeData, getRecipeData]);
 
   return (
     <div>
