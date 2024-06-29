@@ -9,14 +9,13 @@ import {
   TableBody,
   TableCell,
 } from "@/components/ui/table";
-import { useRecipeData } from "@/hooks";
 import { useRecipeStore } from "@/store/recipeStore";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function DataTable() {
-  const { recipeData } = useRecipeStore();
-  useRecipeData();
+  const { recipeData, getRecipeData, loading } = useRecipeStore();
+  getRecipeData();
 
   return (
     <div>
