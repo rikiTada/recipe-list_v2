@@ -5,4 +5,5 @@ export type RecipeStore = {
   loading: boolean;
   getRecipeData: () => void;
   getRecipeDataById: (id: string) => RecipeList | undefined;
+  getRecipeDataByTag: () => string[];
 };
