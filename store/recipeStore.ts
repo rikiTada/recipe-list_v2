@@ -1,14 +1,8 @@
 import { getSaveItems, refName } from "@/lib";
-import { RecipeList } from "@/types";
+import { RecipeStore } from "@/types/store";
 import { create } from "zustand";
 
-type recipeStore = {
-  recipeData: RecipeList[];
-  loading: boolean;
-  getRecipeData: () => void;
-};
-
-export const useRecipeStore = create<recipeStore>((set, get) => ({
+export const useRecipeStore = create<RecipeStore>((set, get) => ({
   recipeData: [],
   loading: false,
   getRecipeData: async () => {
