@@ -13,7 +13,7 @@ export const useRecipeStore = create<RecipeStore>((set, get) => ({
     const items = get().recipeData;
     return items.find((item) => item.id === id);
   },
-  getRecipeDataByTag: () => {
+  getTags: () => {
     const items = get().recipeData;
     return items.flatMap((item) => item.tag);
   },
