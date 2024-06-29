@@ -9,4 +9,8 @@ export const useRecipeStore = create<RecipeStore>((set, get) => ({
     const items = await getSaveItems(refName);
     set({ recipeData: items });
   },
+  getRecipeDataById: (id: string) => {
+    const items = get().recipeData;
+    return items.find((item) => item.id === id);
+  },
 }));
