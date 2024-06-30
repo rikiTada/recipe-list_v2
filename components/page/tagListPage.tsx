@@ -6,14 +6,14 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
 export default function TagList() {
-  const { recipeData, getRecipeData, getRecipeDataByTag } = useRecipeStore();
+  const { recipeData, getRecipeData, getTags } = useRecipeStore();
   useEffect(() => {
     if (!recipeData || recipeData.length === 0) {
       getRecipeData();
     }
   }, [recipeData, getRecipeData]);
 
-  const tags = getRecipeDataByTag();
+  const tags = getTags();
 
   return (
     <>

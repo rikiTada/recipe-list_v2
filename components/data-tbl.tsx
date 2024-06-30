@@ -10,25 +10,18 @@ import {
   TableCell,
 } from "@/components/ui/table";
 import { useRecipeStore } from "@/store/recipeStore";
-import { RecipeList } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 
-export default function DataTable({ tag }: { tag?: string }) {
+export default function DataTable() {
   const { recipeData, getRecipeData } = useRecipeStore();
 
   useEffect(() => {
     if (!recipeData || recipeData.length === 0) {
       getRecipeData();
     }
-	}, [recipeData, getRecipeData]);
-
-	if (tag) {
-		
-
-	}
-
+  }, [recipeData, getRecipeData]);
 
   return (
     <div>
