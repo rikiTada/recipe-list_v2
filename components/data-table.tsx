@@ -13,22 +13,29 @@ import { useRecipeStore } from "@/store/recipeStore";
 import { RecipeList } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function DataTable({ tag }: { tag?: string }) {
-  const { recipeData, getRecipeData } = useRecipeStore();
+  const { recipeData, getRecipeData, getRecipeDataByTag } = useRecipeStore();
 
   useEffect(() => {
     if (!recipeData || recipeData.length === 0) {
       getRecipeData();
     }
-	}, [recipeData, getRecipeData]);
+    if (tag) {
+      getRecipeDataByTag(tag);
+    }
+  }, [recipeData, getRecipeData, tag, getRecipeDataByTag]);
 
-	if (tag) {
-		
+  const [data, setData] = useState<RecipeList[]>([]);
 
-	}
-
+  useEffect(() => {
+    if (!tag) {
+      setData(recipeData);
+    } else {
+      setData(getRecipeDataByTag(tag));
+    }
+  }, [recipeData, tag, getRecipeDataByTag]);
 
   return (
     <div>
@@ -43,11 +50,11 @@ export default function DataTable({ tag }: { tag?: string }) {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {recipeData.map((item) => (
+          {data.map((item) => (
             <TableRow key={item.id}>
               <TableCell>{item.timeStamp}</TableCell>
               <TableCell>
-                <Link href={`/folder/${item.id}`}>{item.title}</Link>
+                <Link href={`/folder/${tag}/${item.id}`}>{item.title}</Link>
               </TableCell>
               <TableCell>
                 <Image

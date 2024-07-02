@@ -17,4 +17,8 @@ export const useRecipeStore = create<RecipeStore>((set, get) => ({
     const items = get().recipeData;
     return items.flatMap((item) => item.tag);
   },
+  getRecipeDataByTag: (tag: string) => {
+    const items = get().recipeData;
+    return items.filter((item) => item.tag.includes(tag));
+  },
 }));

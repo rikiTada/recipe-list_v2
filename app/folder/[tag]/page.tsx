@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 import { FolderOpen } from "lucide-react";
 import Link from "next/link";
 
-export default function Page({ params: { id } }: { params: { id: string } }) {
+export default function Page({ params: { tag } }: { params: { tag: string } }) {
   return (
     <>
-      <Header title={`/${id}`} icon={<FolderOpen />} />
+      <Header title={`./ ${tag}`} icon={<FolderOpen />} />
 
-      <DataTable tag={id} />
+      <DataTable tag={tag} />
 
       <div className="container">
         <Button variant="outline" asChild>
