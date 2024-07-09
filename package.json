@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "generate": "npx prisma generate",
+    "db:generate": "drizzle-kit generate",
     "migrate:local": "npx wrangler d1 migrations apply recipe-list --local",
     "migrate:remote": "npx wrangler d1 migrations apply recipe-list --local",
     "migrate:prisma": "bash prisma/migrate.sh",
@@ -21,6 +22,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@libsql/client": "^0.7.0",
     "@prisma/adapter-d1": "^5.16.2",
     "@prisma/client": "^5.16.1",
     "@radix-ui/react-checkbox": "^1.0.4",
