@@ -10,11 +10,11 @@ export const runtime = "edge";
 const app = new Hono().basePath("/api");
 
 app.get("/", async (c) => {
-  const { results } = await c.env.DB.prepare("SELECT * FROM users").all();
+  // const { results } = await c.env.DB.prepare("SELECT * FROM users").all();
   // const { results } = await process.env.DB.prepare(
   //   "SELECT * FROM customers"
   // ).all();
-  return c.json(results);
+  // return c.json(results);
 });
 
 app.get("/user", async (c) => {
