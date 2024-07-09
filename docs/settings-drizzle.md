@@ -1,9 +1,8 @@
 
 # drrizzleの設定
 
-```
-bun add drizzle-orm postgres
-bun add -D drizzle-kit
+```bash
+bun add drizzle-kit drizzle-orm -D
 ```
 
-https://orm.drizzle.team/kit-docs/quick
+<https://orm.drizzle.team/kit-docs/quick>
