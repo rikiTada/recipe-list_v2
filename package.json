@@ -8,7 +8,6 @@
     "start": "next start",
     "lint": "next lint",
     "generate": "npx prisma generate",
-    "db:generate": "drizzle-kit generate",
     "migrate:prisma": "bash prisma/migrate.sh",
     "studio": "npx prisma studio",
     "d1:db:list": "wrangler d1 migrations list recipe-list",

@@ -6,6 +6,6 @@ export type Bindings = {
 };
 
 export const runtime = "edge";
-export const app = new Hono().basePath("/api");
+export const app = new Hono<{ Bindings: Bindings }>().basePath("/api");
 
 //https://hono.dev/examples/prisma

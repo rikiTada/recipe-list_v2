@@ -23,7 +23,3 @@ INSERT INTO
   User (id, username, full_name, full_name_kana, email, password)
 VALUES
 	('1','a', 'a', 'a', 'hoge@example.com', 'password');
-
-
---  npx wrangler d1 execute recipe-list --file=./prisma/migrations/0001_creat
--- e_user_table.sql --remote
