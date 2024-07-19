@@ -10,7 +10,7 @@ import {
   TableCell,
 } from "@/components/ui/table";
 import { useRecipeStore } from "@/store/recipeStore";
-import { RecipeList } from "@/types";
+import { RecipeList } from "@/types/recipe";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";

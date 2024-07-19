@@ -1,5 +1,5 @@
 import db from "@/lib/firebase";
-import { RecipeList } from "@/types";
+import { RecipeList } from "@/types/recipe";
 import {
   collection,
   doc,

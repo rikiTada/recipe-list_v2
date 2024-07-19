@@ -1,31 +1,13 @@
-import { handle } from "hono/vercel";
-import { Hono } from "hono";
-// import { getRequestContext } from "@cloudflare/next-on-pages";
-import { PrismaClient } from "@prisma/client";
-import { PrismaD1 } from "@prisma/adapter-d1";
-import { app } from "@/app/api";
+import { createApp } from "@/lib/hono";
+import user from "@/app/api/[[...route]]/user";
+import cors from "@/app/api/__middleware__/cors";
 
-// export const runtime = "edge";
+export const runtime = "edge";
 
-app.get("/", async (c) => {
-  // const { DB } = getRequestContext().env;
+const app = createApp().basePath("/api");
+const route = app.route("/*", cors).route("/user", user);
 
-  try {
-		const adapter = new PrismaD1(c.env.DB)
-		const prisma = new PrismaClient({ adapter })
+export const GET = route.fetch;
+export const POST = route.fetch;
 
-    const users = await prisma.user.findMany();
-
-    return c.json({ name: "John Doe" });
-  } catch (error) {
-    return c.json({ error });
-  }
-});
-
-app.get("/users", async (c) => {
-  return c.json({ name: "John Doe" });
-});
-
-export default app;
-
-export const GET = handle(app);
+export type ApiType = typeof route;

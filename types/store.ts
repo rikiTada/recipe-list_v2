@@ -1,4 +1,4 @@
-import { RecipeList } from "@/types";
+import { RecipeList } from "@/types/recipe";
 
 export type RecipeStore = {
   recipeData: RecipeList[];

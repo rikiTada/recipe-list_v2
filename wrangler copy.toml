@@ -1,0 +1,10 @@
+name = "recipe-list"
+compatibility_date = "2024-07-18"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "recipe-list"
+database_id = "546942cc-dd94-4336-839a-30e2daf18ea9"
+migrations_dir = "prisma/migrations/"
