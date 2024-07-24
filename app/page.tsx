@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <>
       <Header title="今日の晩ごはん" icon={<HomeIcon />} />
+      <div className="bg-primary h-screen">TODO: グラデーション</div>
     </>
   );
 }
