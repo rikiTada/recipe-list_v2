@@ -30,6 +30,8 @@
     "@tanstack/react-table": "^8.17.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "dotenv-cli": "^7.4.2",
+    "drizzle-orm": "^0.31.4",
     "firebase": "^10.12.2",
     "hono": "^4.4.12",
     "lucide-react": "^0.383.0",
