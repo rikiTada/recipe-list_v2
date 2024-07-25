@@ -1,4 +1,4 @@
 INSERT INTO
-  User (id, username, email, password)
+  User ( username, email)
 VALUES
-	('1','jone','hoge@example.com','password');
+	('Jone ','hoge@example.com');
