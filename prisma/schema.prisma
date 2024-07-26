@@ -24,20 +24,32 @@ model User {
   shoppingList ShoppingList[]
 
   @@index([id])
-	@@map("user")
+  @@map("user")
 }
 
 model ShoppingList {
-  id          String   @id @default(uuid())
-  type        String?
+  id          String            @id @default(uuid())
+  typeId      String?           @map("type_id")
+  type        ShoppingListType? @relation(fields: [typeId], references: [id])
   title       String
   description String?
-  isPurchased Boolean  @default(false) @map("is_purchased")
-  user        User?    @relation(fields: [userId], references: [id])
-  userId      String?  @map("user_id")
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
+  isPurchased Boolean           @default(false) @map("is_purchased")
+  user        User?             @relation(fields: [userId], references: [id])
+  userId      String?           @map("user_id")
+  createdAt   DateTime          @default(now()) @map("created_at")
+  updatedAt   DateTime          @default(now()) @updatedAt @map("updated_at")
 
   @@index([id])
   @@map("shopping_list")
+}
+
+model ShoppingListType {
+  id           String         @id @default(uuid())
+  type         String?
+  shoppingList ShoppingList[]
+  createdAt    DateTime       @default(now()) @map("created_at")
+  updatedAt    DateTime       @default(now()) @updatedAt @map("updated_at")
+
+  @@index([type])
+  @@map("shopping_list_type")
 }
