@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "generate": "dotenv -e .env.local -- npx prisma generate",
-    "migrate": "dotenv -e .env.local --  bash prisma/migrate.sh",
+    "migrate": "dotenv -e .env.local --  bash prisma/migrate.sh&&generate",
     "studio": "npx prisma studio",
     "d1:migrate:local": "wrangler d1 migrations apply recipe-list --local",
     "d1:migrate:remote": "wrangler d1 migrations apply recipe-list --remote",
