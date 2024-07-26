@@ -1,4 +1,4 @@
-import { Folders, Home, Search, Settings } from "lucide-react";
+import { Folders, Home, Search, Settings, ShoppingCart } from "lucide-react";
 import ToolbarButton from "@/components/layout/toolbar-button";
 
 export default function Toolbar() {
@@ -17,6 +17,11 @@ export default function Toolbar() {
       title: "Search",
       icon: <Search />,
       href: "/search",
+    },
+    {
+      title: "Shopping List",
+      icon: <ShoppingCart />,
+      href: "/shopping-list",
     },
     {
       title: "Settings",

@@ -26,12 +26,12 @@ export default function ToolbarButton({
       className={
         (cn("rounded-full"),
         href === pathname
-          ? "ring-1 ring-primary/20 rounded-full"
+          ? "ring-1 ring-orange-300 rounded-full"
           : "rounded-full")
       }
       asChild
     >
-      <Link href={href} onClick={() => console.log("clicked toggle theme")}>
+      <Link href={href}>
         <IconSlot size={10}>{icon}</IconSlot>
         <span className="sr-only">{title}</span>
       </Link>
