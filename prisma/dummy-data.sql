@@ -1,4 +1,9 @@
+-- Insert into user
 INSERT INTO
-  User ( username, email)
+  user (id, username, email)
 VALUES
-	('Jone ','hoge@example.com');
+  (
+    'dac78382-23f0-414b-ad31-9cbf3d872fab',
+    'Jone',
+    'jone@example.com'
+  );
