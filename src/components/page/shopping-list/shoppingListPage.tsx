@@ -23,6 +23,10 @@ export default function ShoppingListPage() {
   return (
     <div className="container">
       <div className="my-4 flex gap-4">
+        {/* TODO
+        - input focus時にどのタブへ追加するか選択できるようにする
+
+      */}
         <Input
           placeholder="リストを追加"
           type="text"
@@ -44,6 +48,12 @@ export default function ShoppingListPage() {
           </Button>
         </div>
       </div>
+      {/* TODO
+        - listTypeデータからリストを取得して表示する
+        - リストクリックで詳細画面に遷移
+        - View Transitions API
+
+      */}
       {["スーパー", "日用品", "100均", "その他"].map((name) => (
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">

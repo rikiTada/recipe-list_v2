@@ -15,8 +15,6 @@ export default function ListItem(item: ShoppingList) {
       key={item.id}
       className="flex items-center p-2.5 gap-2.5 border-b border-gray-200"
     >
-      {isChecked && <Confetti width={width} height={height} recycle={false} />}
-
       <Checkbox
         id={item.id}
         className="data-[state=checked]:bg-orange-500 border-gray-400"
@@ -29,6 +27,13 @@ export default function ListItem(item: ShoppingList) {
       >
         {item.title}
       </label>
+      {/* TODO
+        - react-rewardsを使ってみる(https://github.com/thedevelobear/react-rewards)
+          - https://zenn.dev/taigakiyokawa/articles/20221201-react-rewards-interval
+      */}
+      {isChecked && (
+        <Confetti width={width} height={height} gravity={0.4} recycle={false} />
+      )}
     </div>
   );
 }
