@@ -3,11 +3,13 @@ import { Checkbox } from "@/components/ui/checkbox";
 import React from "react";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Confetti from "react-confetti";
-
+import { useReward } from "react-rewards";
 import { ShoppingList } from "@prisma/client";
 
 export default function ListItem(item: ShoppingList) {
   const { width, height } = useWindowSize();
+  const { reward, isAnimating } = useReward("rewardId", "confetti");
+
   const [on, toggle] = useToggle(item.isPurchased);
 
   return (
@@ -34,6 +36,10 @@ export default function ListItem(item: ShoppingList) {
       {on && (
         <Confetti width={width} height={height} gravity={0.4} recycle={false} />
       )}
+      <button disabled={isAnimating} onClick={reward}>
+        <span id="rewardId" />
+        🎉
+      </button>
     </div>
   );
 }
