@@ -1,14 +1,14 @@
+import { useToggle } from "react-use";
 import { Checkbox } from "@/components/ui/checkbox";
 import React from "react";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Confetti from "react-confetti";
 
 import { ShoppingList } from "@prisma/client";
-import { useState } from "react";
 
 export default function ListItem(item: ShoppingList) {
   const { width, height } = useWindowSize();
-  const [isChecked, setIsChecked] = useState(item.isPurchased);
+  const [on, toggle] = useToggle(item.isPurchased);
 
   return (
     <div
@@ -18,12 +18,12 @@ export default function ListItem(item: ShoppingList) {
       <Checkbox
         id={item.id}
         className="data-[state=checked]:bg-orange-500 border-gray-400"
-        checked={isChecked}
-        onClick={() => setIsChecked(!isChecked)}
+        checked={on}
+        onClick={toggle}
       />
       <label
         htmlFor={item.id}
-        className={`text-sm ${!isChecked ? "" : "text-zinc-400 line-through"}`}
+        className={`text-sm ${!on ? "" : "text-zinc-400 line-through"}`}
       >
         {item.title}
       </label>
@@ -31,7 +31,7 @@ export default function ListItem(item: ShoppingList) {
         - react-rewardsを使ってみる(https://github.com/thedevelobear/react-rewards)
           - https://zenn.dev/taigakiyokawa/articles/20221201-react-rewards-interval
       */}
-      {isChecked && (
+      {on && (
         <Confetti width={width} height={height} gravity={0.4} recycle={false} />
       )}
     </div>
