@@ -1,16 +1,22 @@
 import { useToggle } from "react-use";
 import { Checkbox } from "@/components/ui/checkbox";
 import React from "react";
-import useWindowSize from "react-use/lib/useWindowSize";
-import Confetti from "react-confetti";
+// import useWindowSize from "react-use/lib/useWindowSize";
 import { useReward } from "react-rewards";
 import { ShoppingList } from "@prisma/client";
 
 export default function ListItem(item: ShoppingList) {
-  const { width, height } = useWindowSize();
-  const { reward, isAnimating } = useReward("rewardId", "confetti");
+  // const { width, height } = useWindowSize();
+  const { reward, isAnimating } = useReward(item.id, "emoji", {
+    emoji: ["🐹", "✨", "🎀", "💩"],
+  });
 
   const [on, toggle] = useToggle(item.isPurchased);
+
+  const handleReward = () => {
+    toggle();
+    if (!on) reward();
+  };
 
   return (
     <div
@@ -21,7 +27,8 @@ export default function ListItem(item: ShoppingList) {
         id={item.id}
         className="data-[state=checked]:bg-orange-500 border-gray-400"
         checked={on}
-        onClick={toggle}
+        disabled={isAnimating}
+        onClick={handleReward}
       />
       <label
         htmlFor={item.id}
@@ -33,13 +40,7 @@ export default function ListItem(item: ShoppingList) {
         - react-rewardsを使ってみる(https://github.com/thedevelobear/react-rewards)
           - https://zenn.dev/taigakiyokawa/articles/20221201-react-rewards-interval
       */}
-      {on && (
-        <Confetti width={width} height={height} gravity={0.4} recycle={false} />
-      )}
-      <button disabled={isAnimating} onClick={reward}>
-        <span id="rewardId" />
-        🎉
-      </button>
+      <span id={item.id} />
     </div>
   );
 }
